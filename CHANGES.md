@@ -9,6 +9,9 @@
 - Changed default samples from 100 to 50!
 - Fixed plot filling in some cases
 
+### Spring
+- New spring library for drawing springs
+
 # 0.1.2
 CeTZ requires Typst 0.8.0.
 ## Draw

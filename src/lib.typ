@@ -16,6 +16,7 @@
 #import "lib/angle.typ"
 #import "lib/tree.typ"
 #import "lib/decorations.typ"
+#import "lib/spring.typ"
 
 // // These are aliases to prevent name collisions
 // // You can use them for importing the module into the
