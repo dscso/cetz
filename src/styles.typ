@@ -13,14 +13,15 @@
 // with width on the axis perpendicular to its direction and the styles `z-up`
 // vector.
 #let _default-mark = (
-  scale: 1,     // Scaling factor
-  length: .2,   // Length
-  width: 0.15,  // Width
-  inset: .05,   // Arrow mark base inset
-  sep: .1,      // Extra distance between marks
-  z-up: (0,1,0),// Z-Axis upwards vector
-  start: none,  // Mark start symbol(s)
-  end: none,    // Mark end symbol(s)
+  scale: 1,       // Scaling factor
+  length: .2,     // Length
+  width: 0.15,    // Width
+  inset: .05,     // Arrow mark base inset
+  sep: .1,        // Extra distance between marks
+  reverse: false, // Reverse tip direction
+  z-up: (0,1,0),  // Z-Axis upwards vector
+  start: none,    // Mark start symbol(s)
+  end: none,      // Mark end symbol(s)
   stroke: auto,
   fill: none,
 )
