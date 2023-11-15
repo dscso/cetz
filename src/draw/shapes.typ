@@ -317,12 +317,9 @@
   return (ctx => {
     let (ctx, ..pts) = coordinate.resolve(ctx, from, to)
     let style = styles.resolve(ctx.style, style, root: "mark")
-    
-    return (ctx: ctx, drawables: drawable.mark(
-      ..pts,
-      style.symbol,
-      style
-    ))
+
+    let (marks, _) = mark_.place-marks-along-line(ctx, pts, style)
+    return (ctx: ctx, drawables: marks)
   },)
 }
 
@@ -427,7 +424,7 @@
           y *= y-step
           y += from.at(1)
           drawable.path(
-            path-util.line-segment(((from.at(0), y), (to.at(1), y))),
+            path-util.line-segment(((from.at(0), y), (to.at(0), y))),
             fill: style.fill,
             stroke: style.stroke
           )

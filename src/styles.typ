@@ -13,15 +13,16 @@
 // with width on the axis perpendicular to its direction and the styles `z-up`
 // vector.
 #let _default-mark = (
-  scale: 1,       // Scaling factor
-  length: .2,     // Length
-  width: 0.15,    // Width
-  inset: .05,     // Arrow mark base inset
-  sep: .1,        // Extra distance between marks
-  reverse: false, // Reverse tip direction
-  z-up: (0,1,0),  // Z-Axis upwards vector
-  start: none,    // Mark start symbol(s)
-  end: none,      // Mark end symbol(s)
+  scale: 100%,      // Scaling factor
+  length: .2,       // Length
+  width: 0.15,      // Width
+  inset: .05,       // Arrow mark base inset
+  sep: .1,          // Extra distance between marks
+  slant: none,      // Slanting (0deg/none: no slanting)
+  z-up: (0,1,0),    // Z-Axis upwards vector
+  shorten-to: auto, // Sets to which mark a path gets shortened: none, auto = last mark, int = nth-mark
+  start: none,      // Mark start symbol(s)
+  end: none,        // Mark end symbol(s)
   stroke: auto,
   fill: none,
 )
@@ -52,7 +53,7 @@
     /// Bezier shortening mode:
     ///   - "LINEAR" Moving the affected point and it's next control point (like TikZ "quick" key)
     ///   - "CURVED" Preserving the bezier curve by calculating new control points
-    shorten: "LINEAR",
+    shorten: "CURVED",
   ),
   catmull: (
     tension: .5,
@@ -65,7 +66,7 @@
       /// a higher number gives better results but may slow down compilation.
       position-samples: 30,
     ),
-    shorten: "LINEAR",
+    shorten: "CURVED",
   ),
   hobby: (
     /// Curve start and end omega (curlyness)
@@ -81,7 +82,7 @@
       /// a higher number gives better results but may slow down compilation.
       position-samples: 30,
     ),
-    shorten: "LINEAR",
+    shorten: "CURVED",
   ),
   arc: (
     // Supported values:

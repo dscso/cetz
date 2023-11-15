@@ -415,9 +415,10 @@ grid((0,0), (3,2), help-lines: true)
 
 #show-module-fn(draw-module, "mark")
 ```example
-line((1, 0), (1, 7), stroke: (paint: gray, dash: "dotted"))
+line((1, 0), (1, 8), stroke: (paint: gray, dash: "dotted"))
 set-style(mark: (fill: none))
-line((0, 7), (1, 7), mark: (end: "barbed"))
+line((0, 8), (1, 8), mark: (end: "->"))
+line((0, 7), (1, 7), mark: (end: "~>"))
 line((0, 6), (1, 6), mark: (end: "<"))
 line((0, 5), (1, 5), mark: (end: ">"))
 set-style(mark: (fill: black))
