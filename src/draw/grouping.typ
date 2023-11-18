@@ -174,12 +174,7 @@
   },)
 }
 
-#let place-anchors(path, ..anchors, name: auto) = {
-  let name = if name == auto and "name" in path.first() {
-    path.first().name
-  } else {
-    name
-  }
+#let place-anchors(path, name, ..anchors) = {
   assert(type(name) == str, message: "Name must be of type string")
   
   return (ctx => {
