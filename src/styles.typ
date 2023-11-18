@@ -19,6 +19,7 @@
   inset: .05,       // Arrow mark base inset
   sep: .1,          // Extra distance between marks
   reverse: false,   // Reverse mark direction
+  flip: false,      // Mirror mark at its half between base and tip
   slant: none,      // Slanting (0deg/none: no slanting)
   z-up: (0,1,0),    // Z-Axis upwards vector
   shorten-to: auto, // Sets to which mark a path gets shortened: none, auto = last mark, int = nth-mark
