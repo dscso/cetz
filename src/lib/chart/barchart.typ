@@ -46,6 +46,7 @@
 /// - x-unit (content,auto): Tick suffix added to each tick label
 /// - y-label (content,none): Y axis label
 /// - x-label (content,none): x axis label
+/// - labels (none,content): Legend labels per x value group
 /// - ..plot-args (any): Arguments to pass to `plot.plot`
 #let barchart(data,
               label-key: 0,
@@ -56,6 +57,7 @@
               x-label: none,
               x-unit: auto,
               y-label: none,
+              labels: none,
               ..plot-args
               ) = {
   assert(type(label-key) in (int, str))
@@ -94,7 +96,6 @@
       root: "barchart", base: barchart-default-style)
     draw.set-style(..style)
 
-
     let y-inset = calc.max(style.y-inset, style.bar-width / 2)
     plot.plot(size: size,
               axis-style: "scientific-auto",
@@ -110,7 +111,8 @@
     {
       plot.add-bar(data,
         mode: mode,
-        bar-width: style.bar-width,
+        labels: labels,
+        bar-width: -style.bar-width,
         axes: ("y", "x"))
     })
   })

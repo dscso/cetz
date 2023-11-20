@@ -47,6 +47,7 @@
 /// - y-unit (content,auto): Tick suffix added to each tick label
 /// - y-label (content,none): Y axis label
 /// - x-label (content,none): x axis label
+/// - labels (none,content): Legend labels per y value group
 /// - ..plot-args (any): Arguments to pass to `plot.plot`
 #let columnchart(data,
                  label-key: 0,
@@ -57,6 +58,7 @@
                  x-label: none,
                  y-unit: auto,
                  y-label: none,
+                 labels: none,
                  ..plot-args
                  ) = {
   assert(type(label-key) in (int, str))
@@ -110,6 +112,7 @@
     {
       plot.add-bar(data,
         mode: mode,
+        labels: labels,
         bar-width: style.bar-width,
         axes: ("x", "y"))
     })

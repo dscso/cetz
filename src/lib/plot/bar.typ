@@ -104,8 +104,8 @@
     message: "Mode must be basic, clustered, stacked or stacked100, but is " + mode)
   assert(bar-position in ("start", "center", "end"),
     message: "Invalid bar-position '" + bar-position + "'. Allowed values are: start, center, end")
-  assert(bar-width > 0,
-    message: "Option bar-width must be > 0, but is " + str(bar-width))
+  assert(bar-width != 0,
+    message: "Option bar-width must be != 0, but is " + str(bar-width))
 
   let n = util.max(..data.map(d => d.len() - 1))
   let x-offset = _get-x-offset(bar-position, bar-width)
