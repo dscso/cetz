@@ -276,7 +276,7 @@
 // - padding (array): Padding (left, right, top, bottom)
 // - frame (string): Frame mode:
 //                   - true: Draw frame around all axes
-//                   - "set": Draw line for set (!= none) axes
+//                   - auto: Draw line for set (!= none) axes
 //                   - false: Draw no frame
 // - ..style (any): Style
 #let scientific(size: (1, 1),
@@ -377,7 +377,7 @@
               }
 
               if grid-mode.major and major or grid-mode.minor and not major {
-                let (grid-begin, grid-end) = if name in ("north", "south") {
+                let (grid-begin, grid-end) = if name in ("top", "bottom") {
                   ((x, 0), (x, h))
                 } else {
                   ((0, y), (w, y))
@@ -394,11 +394,11 @@
         }
       }
 
-      assert(frame in (true, false, "set"),
-             message: "Invalid frame mode")
+      assert(frame in (true, false, auto),
+        message: "Invalid frame mode")
       if frame == true {
         rect((0, 0), size, ..style)
-      } else if frame == "set" { 
+      } else if frame == auto {
         let segments = ((),)
 
         if left != none {segments.last() += ((0,h), (0,0))}
