@@ -13,6 +13,7 @@
 #import "plot/boxwhisker.typ": add-boxwhisker
 #import "plot/util.typ" as plot-util
 #import "plot/legend.typ": draw-legend
+#import "plot/bar.typ": add-bar
 #import "plot/mark.typ"
 
 #let default-colors = (blue, red, green, yellow, black)
