@@ -1102,11 +1102,16 @@ styled the same way, see @plot.style.
 #raw(repr(chart.boxwhisker-default-style))
 
 == Palette <palette>
-#let palette-module = tidy.parse-module(read("src/lib/palette.typ"), name: "Palette")
 
-A palette is a function that returns a style for an index.
+A palette is a function of the form `index => style` that takes an
+index, that can be any integer and returns a canvas style dictionary.
+If passed the string `"len"` it must return the length of its unique
+styles. An example use for palette functions is the `plot` library, which
+can use palettes to apply different styles per plot.
+
 The palette library provides some predefined palettes.
 
+#let palette-module = tidy.parse-module(read("src/lib/palette.typ"), name: "Palette")
 #tidy.show-module(palette-module, show-module-name: false)
 
 #let show-palette(p) = box({
