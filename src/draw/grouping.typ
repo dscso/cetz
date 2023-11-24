@@ -192,7 +192,7 @@
     let out = (:)
     for a in anchors.pos() {
       assert("name" in a, message: "Anchor must have a name set")
-      out.insert(a.name, path-util.point-on-path(s, a.pos))
+      out.insert(a.name, path-util.point-on-path(s, a.pos * 100%))
     }
 
     return (
@@ -272,8 +272,8 @@
 
     let path = paths.first()
     let anchors = (
-      start: path-util.point-on-path(path.segments, 0),
-      end: path-util.point-on-path(path.segments, 1)
+      start: path-util.point-on-path(path.segments, 0%),
+      end: path-util.point-on-path(path.segments, 100%)
     )
 
     let style = styles.resolve(ctx.style, style, root: "mark")
@@ -289,7 +289,7 @@
         )
       )
       if "name" in mark {
-        anchors.insert(m.name, path-util.point-on-path(path, mark.pos))
+        anchors.insert(m.name, path-util.point-on-path(path, mark.pos * 100%))
       }
     }
 
