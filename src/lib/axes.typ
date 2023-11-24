@@ -34,6 +34,7 @@
 
 #let default-style-schoolbook = util.merge-dictionary(default-style, (
   tick: (label: (offset: .1)),
+  label: (offset: .1),
   mark: (end: ">"),
   padding: .4))
 
@@ -500,7 +501,7 @@
       if style.label.anchor == auto {
         anchor = "north-west"
       }
-      content((rel: (0, -style.tick.label.offset), to: "x-axis.end"),
+      content((rel: (0, -style.label.offset), to: "x-axis.end"),
         anchor: anchor, x-axis.label)
     }
 
@@ -512,7 +513,7 @@
       if style.label.anchor == auto {
         anchor = "south-east"
       }
-      content((rel: (-style.tick.label.offset, 0), to: "y-axis.end"),
+      content((rel: (-style.label.offset, 0), to: "y-axis.end"),
         anchor: anchor, y-axis.label)
     }
 
